@@ -20,17 +20,12 @@
 </div>
 
 <div>
-<h3>Diagrama e tarefas</h3>
 
 #### **In progress**
 
 > How the game works
 >
 > Type here, how the game works.
-
-> Inserir o diagrama do projeto
->
->  imagem do diagrama
 
 </div>
 

@@ -1,35 +1,37 @@
 package com;
 
 import com.entities.BoardSpace;
-import com.entities.GameBoard;
-import com.utils.Printer;
+import com.entities.GameStatus;
+import com.entities.Player;
+import com.services.GameBoard;
+import com.services.SetShip;
+import com.services.SetShoot;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        //novo tabuleiro
-        GameBoard.printBoard();
+        /**
+         * Inicialização do jogo com a criação dos tabuleiros
+         * */
+        Player player = Player.createPlayer();
+        BoardSpace[][] playerBoard = GameBoard.createBoardGame();
+        SetShip.setShipOnPlayerBoard(playerBoard);
 
-//        //Cria uma celula
-//        BoardSpace boardSpace = BoardSpace.createBoardSpace();
-//        //Imprime celula teste
-//        Printer.boardSpacePrinter(boardSpace);
-//
-//        //recebe um navio
-//        boardSpace = BoardSpace.setShipInside(boardSpace);
-//        Printer.boardSpacePrinter(boardSpace);
-//
-//        //Navio atingido
-//        boardSpace = BoardSpace.setHittedShip(boardSpace);
-//        Printer.boardSpacePrinter(boardSpace);
-//
-//        //Agua atingida
-//        boardSpace = BoardSpace.setHittedWater(boardSpace);
-//        Printer.boardSpacePrinter(boardSpace);
+        Player npc = Player.createNPC();
+        BoardSpace[][] npcBoard = GameBoard.createBoardGame();
+        SetShip.setShipOnNpcBoard(npcBoard);
 
-        //altera jogada no tabuleiro
+        if (!GameStatus.isGameOver) {
+            SetShoot.shoot(player, npcBoard);
+            GameStatus.getStatusGame(player, npc);
+            SetShoot.npcShoot(npc, playerBoard);
+            GameStatus.getStatusGame(player, npc);
 
+            System.out.println("Player " + player.shipsDestroyed);
+            System.out.println("NPC " + npc.shipsDestroyed);
+        }
 
+        System.out.println("End of game");
     }
 }

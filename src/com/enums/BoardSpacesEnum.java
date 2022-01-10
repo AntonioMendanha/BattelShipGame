@@ -6,13 +6,13 @@ public enum BoardSpacesEnum {
     HITTED_SHIP(" * "),
     HITTED_WATER(" - ");
 
-    private String insideText;
+    private String type;
 
-    BoardSpacesEnum(String insideText) {
-        this.insideText = insideText;
+    BoardSpacesEnum(String type) {
+        this.type = type;
     }
 
-    public String getInsideText() {
-        return insideText;
+    public String setCellType() {
+        return type;
     }
 }
