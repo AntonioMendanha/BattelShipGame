@@ -20,10 +20,10 @@ public class Scan {
         return rowScan.next();
     }
 
-    public static int rowCoordinateScan() {
-        Scanner number = new Scanner(System.in);
+    public static char rowCoordinateScan() {
+        Scanner letter = new Scanner(System.in);
         Printer.rowCoordinate();
-        return number.nextInt();
+        return letter.next().charAt(0);
     }
 
     public static int columnCoordinateScan() {
@@ -32,15 +32,15 @@ public class Scan {
         return number.nextInt();
     }
 
-    public static int shipRowCoordinateScan() {
-        Scanner number = new Scanner(System.in);
-        Printer.rowShipCoordinate();
-        return number.nextInt();
+    public static char shipRowCoordinateScan() {
+        Scanner letter = new Scanner(System.in);
+        Printer.setRowShipCoordinate();
+        return letter.next().charAt(0);
     }
 
     public static int shipColumnCoordinateScan() {
         Scanner number = new Scanner(System.in);
-        Printer.columnShipCoordinate();
+        Printer.setColumnShipCoordinate();
         return number.nextInt();
     }
 

@@ -1,6 +1,5 @@
 package com.services;
 
-import com.entities.BoardSpace;
 import com.enums.BoardSpacesEnum;
 
 public class SetBoardTypes {

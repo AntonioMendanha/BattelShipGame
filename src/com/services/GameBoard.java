@@ -1,37 +1,36 @@
 package com.services;
 
-import com.entities.BoardSpace;
+import com.entities.BoardPosition;
 import com.utils.Printer;
 
 public class GameBoard {
 
-    private static final int MAX_COLUMN_ROW = 11;
+    public static final int MAX_COLUMN_ROW = 4;
     private static final String[] COL_HEADER_TEXT = {
             " _ ", " A ", " B ", " C ", " D ", " E ", " F ", " G ", " H ", " I ", " J "
     };
     private static final String[] ROW_HEADER_TEXT = {
             " _ ", " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 ", " 10"
     };
-    private static final int maxShipOnBoard = 3;
+    private static final int maxShipOnBoard = 1;
 
     /**
      * Função para criar o esqueleto do tabuleiro de células do jogo em tamanho 11 x 11
      * */
-    private static BoardSpace[][] initializeGameBoard() {
-        BoardSpace[][] gameBoard = new BoardSpace[MAX_COLUMN_ROW][MAX_COLUMN_ROW];
+    private static BoardPosition[][] initializeGameBoard() {
+        BoardPosition[][] gameBoard = new BoardPosition[MAX_COLUMN_ROW][MAX_COLUMN_ROW];
         for(int i = 0; i < MAX_COLUMN_ROW ; i++) {
             for(int j =0; j < MAX_COLUMN_ROW ; j++) {
-                gameBoard[i][j] = BoardSpace.createBoardSpace();
+                gameBoard[i][j] = BoardPosition.createBoardSpace();
             }
         }
         return gameBoard;
     }
 
     /**
-     * Função que recebe o esqueleto do tabuleiro e coloca todas as células com o campo vazio
+     * Função que recebe o esqueleto do tabuleiro e coloca todas as células do tipo BoardPosition
      * */
-    //Após criar o esqueleto, popular o tabuleiro com cada celula como um BoardSpace novo e insideText.EMPTY
-    private static BoardSpace[][] newEmptyGameBoard(BoardSpace[][] gameBoard) {
+    private static BoardPosition[][] newEmptyGameBoard(BoardPosition[][] gameBoard) {
         for (int i = 0; i < MAX_COLUMN_ROW ; i++){
             for (int j = 0; j < MAX_COLUMN_ROW ; j++){
                 //formatar cabeçalho das linhas
@@ -50,9 +49,9 @@ public class GameBoard {
     /**
      * Cria um tabuleiro 11 pronto para ser exibido em tela
      */
-    public static BoardSpace[][] createBoardGame() {
-        BoardSpace[][] initializeGameBoard = initializeGameBoard();
-        BoardSpace[][] newGameBoard = newEmptyGameBoard(initializeGameBoard);
+    public static BoardPosition[][] createBoardGame() {
+        BoardPosition[][] initializeGameBoard = initializeGameBoard();
+        BoardPosition[][] newGameBoard = newEmptyGameBoard(initializeGameBoard);
         return newGameBoard;
     }
 
@@ -60,7 +59,7 @@ public class GameBoard {
      * Função para imprimir o tabuleiro
      */
     //Imprimir o tabuleiro na tela (player ou npc)
-    public static void printBoard(BoardSpace[][] board){
+    public static void printBoard(BoardPosition[][] board){
        for (int i = 0; i < MAX_COLUMN_ROW ; i++){
             for ( int j = 0; j < MAX_COLUMN_ROW ; j++) {
                 Printer.boardSpacePrinter(board[i][j]);

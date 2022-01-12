@@ -1,11 +1,12 @@
 package com;
 
-import com.entities.BoardSpace;
+import com.entities.BoardPosition;
 import com.entities.GameStatus;
 import com.entities.Player;
 import com.services.GameBoard;
-import com.services.SetShip;
-import com.services.SetShoot;
+import com.services.HandleShip;
+import com.services.HandleShoot;
+import com.utils.Printer;
 
 public class Main {
 
@@ -15,21 +16,21 @@ public class Main {
          * Inicialização do jogo com a criação dos tabuleiros
          * */
         Player player = Player.createPlayer();
-        BoardSpace[][] playerBoard = GameBoard.createBoardGame();
-        SetShip.setShipOnPlayerBoard(playerBoard);
+        BoardPosition[][] playerBoard = GameBoard.createBoardGame();
+        HandleShip.setShipOnPlayerBoard(playerBoard);
 
         Player npc = Player.createNPC();
-        BoardSpace[][] npcBoard = GameBoard.createBoardGame();
-        SetShip.setShipOnNpcBoard(npcBoard);
+        BoardPosition[][] npcBoard = GameBoard.createBoardGame();
+        HandleShip.setShipOnNpcBoard(npcBoard);
 
-        if (!GameStatus.isGameOver) {
-            SetShoot.shoot(player, npcBoard);
+        while (!GameStatus.isGameOver) {
+            HandleShoot.shoot(player, npcBoard);
             GameStatus.getStatusGame(player, npc);
-            SetShoot.npcShoot(npc, playerBoard);
-            GameStatus.getStatusGame(player, npc);
-
-            System.out.println("Player " + player.shipsDestroyed);
-            System.out.println("NPC " + npc.shipsDestroyed);
+            if(!GameStatus.isGameOver) {
+                HandleShoot.npcShoot(npc, playerBoard);
+                GameStatus.getStatusGame(player, npc);
+                Printer.gameStatus(player, npc);
+            }
         }
 
         System.out.println("End of game");
