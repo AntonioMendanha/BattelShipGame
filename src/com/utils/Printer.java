@@ -19,15 +19,13 @@ public class Printer {
     }
     public static void setColumnShipCoordinate(){
         System.out.print("E em qual coluna esse navio vai ficar? Coluna 1, 2 ou 3 ? ");
-        Printer.nextRow();
     }
     public static void rowCoordinate() {
         Printer.nextRow();
         System.out.print("Certo Capitão, nossa vez de atirar, qual a linha que vamos atacar? Linha A, B ou C? ");
     }
     public static void columnCoordinate() {
-        System.out.println("Agora precisamos da coluna que vamos atacar? Coluna 1, 2 ou 3 ? ");
-        Printer.nextRow();
+        System.out.print("Agora precisamos da coluna que vamos atacar? Coluna 1, 2 ou 3 ? ");
     }
     public static void shootedOnShip(){
         Printer.nextRow();
@@ -41,17 +39,17 @@ public class Printer {
     }
     public static void repeatedCoordinates(){
         Printer.nextRow();
-        System.out.println("Essas coordenadas já foram capitão, precisamos de outra...");
+        System.out.println("--Essas coordenadas já foram capitão, precisamos de outra...");
         Printer.nextRow();
     }
     public static void npcShootedOnShip() {
         Printer.nextRow();
-        System.out.println("Perdemos um navio capitão!");
+        System.out.print("----Perdemos um navio capitão!");
         Printer.nextRow();
     }
     public static void npcShootedOnWater() {
         Printer.nextRow();
-        System.out.println("Eles erraram o tiro capitão, vamos em frente");
+        System.out.print("----Eles erraram o tiro capitão, vamos em frente");
         Printer.nextRow();
     }
 

@@ -1,27 +1,24 @@
 package com.services;
 
 import com.entities.BoardPosition;
-import com.utils.Converter;
-import com.utils.Printer;
-import com.utils.RandomNumber;
-import com.utils.Scan;
+import com.utils.*;
 
 public class HandleShip {
 
     private static final int TOTAL_SHIPS = 2 ;
+    private static int column = 0;
+    private static int row = 0;
 
     /**
-     * Função para pocisionar os navios do player
+     * Função para pocisionar os navios do player, utiliza os verificadores para validação
      * */
     public static BoardPosition[][] setShipOnPlayerBoard(BoardPosition[][] playerBoard) {
-        char rowLetter;
-
         for (int i = 0; i < TOTAL_SHIPS ; i++) {
-            rowLetter = Scan.shipRowCoordinateScan();
-            int row = Converter.letterToNumber(rowLetter);
-            int column = Scan.shipColumnCoordinateScan();
-            BoardPosition move = playerBoard[row][column];
-            if (move.hasShipInside == false) {
+
+            int[] moveNumber = getPlayerMove();
+            BoardPosition move = playerBoard[moveNumber[0]][moveNumber[1]];
+
+            if (!move.hasShipInside) {
                 move.hasShipInside = true;
                 move.boardType = SetBoardTypes.setShipInsideBoardSpace();
                 System.out.println("Navio " + (i + 1) + " pocisionado!");
@@ -38,13 +35,12 @@ public class HandleShip {
      * */
     public static BoardPosition[][] setShipOnNpcBoard(BoardPosition[][] npcBoard) {
         for (int i = 0; i < TOTAL_SHIPS ; i++) {
-            int row = RandomNumber.coordinates();
-            int column = RandomNumber.coordinates();
+            int[] moveNumber = getNpcMove();
 
-            BoardPosition move = npcBoard[row][column];
-            if (move.hasShipInside == false) {
+            BoardPosition move = npcBoard[moveNumber[0]][moveNumber[1]];
+
+            if (!move.hasShipInside) {
                 move.hasShipInside = true;
-                move.boardType = SetBoardTypes.setShipInsideBoardSpace();
             }
         }
         Printer.nextRow();
@@ -54,5 +50,19 @@ public class HandleShip {
         return npcBoard;
     }
 
+    public static int[] getPlayerMove(){
+        char letterRow = Verifier.rowShipVerifier(Scan.shipRowCoordinateScan());
+        row = Converter.letterToNumber(letterRow);
+        column = Verifier.numberVerifier(Scan.shipColumnCoordinateScan());
+        int[] result = { row , column };
+        return result;
+    }
+
+    public static int[] getNpcMove(){
+        row = Verifier.numberVerifier(RandomNumber.coordinates());
+        column = Verifier.numberVerifier(RandomNumber.coordinates());
+        int[] result = { row , column};
+        return result;
+    }
 
 }

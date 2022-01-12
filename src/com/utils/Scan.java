@@ -9,24 +9,14 @@ public class Scan {
         System.out.print("Insira o seu nome Capitão: ");
         return playerName.next();
     }
-    public static int chooseColumn() {
-        Scanner columnScan = new Scanner(System.in);
-        System.out.print("Insira o numero da coluna: ");
-        return columnScan.nextInt();
-    }
-    public static String chooseRow() {
-        Scanner rowScan = new Scanner(System.in);
-        System.out.print("Insira a letra da linha: ");
-        return rowScan.next();
-    }
 
-    public static char rowCoordinateScan() {
+    public static char shootRowCoordinateScan() {
         Scanner letter = new Scanner(System.in);
         Printer.rowCoordinate();
         return letter.next().charAt(0);
     }
 
-    public static int columnCoordinateScan() {
+    public static int shootColumnCoordinateScan() {
         Scanner number = new Scanner(System.in);
         Printer.columnCoordinate();
         return number.nextInt();
@@ -43,8 +33,5 @@ public class Scan {
         Printer.setColumnShipCoordinate();
         return number.nextInt();
     }
-
-
-
 
 }

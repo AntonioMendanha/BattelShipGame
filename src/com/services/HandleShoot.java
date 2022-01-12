@@ -2,21 +2,19 @@ package com.services;
 
 import com.entities.BoardPosition;
 import com.entities.Player;
-import com.utils.Converter;
-import com.utils.Printer;
-import com.utils.RandomNumber;
-import com.utils.Scan;
+import com.utils.*;
 
 public class HandleShoot {
+    private static int column = 0;
+    private static int row = 0;
 
     /**
      * Função para criar o tiro do player no NPC
      * */
     public static BoardPosition[][] shoot(Player player, BoardPosition[][] npcBoard) {
-        char rowLetter;
-        rowLetter = Scan.rowCoordinateScan();
-        int row = Converter.letterToNumber(rowLetter);
-        int column = Scan.columnCoordinateScan();
+        char rowLetter = Verifier.rowShootVerifier(Scan.shootRowCoordinateScan());
+        row = Converter.letterToNumber(rowLetter);
+        column = Verifier.numberVerifier(Scan.shootColumnCoordinateScan());
         BoardPosition shoot = npcBoard[row][column];
         if (shoot.hasShipInside == true) {
             Printer.shootedOnShip();
@@ -26,7 +24,7 @@ public class HandleShoot {
             Printer.shootedOnWater();
             shoot.boardType = SetBoardTypes.setWaterInsideBoardSpace();
         }
-        GameBoard.printBoard(npcBoard);
+        System.out.println("Campo inimigo atualizado");
 
         return npcBoard;
     }
@@ -35,8 +33,8 @@ public class HandleShoot {
      * Função para criar o tiro do NPC
      * */
     public static BoardPosition[][] npcShoot(Player npc, BoardPosition[][] playerBoard) {
-        int row = RandomNumber.coordinates();
-        int column = RandomNumber.coordinates();
+        row = Verifier.numberVerifier(RandomNumber.coordinates()); // ja funciona com int
+        column = Verifier.numberVerifier(RandomNumber.coordinates());
         BoardPosition shoot = playerBoard[row][column];
         if (shoot.hasShipInside == true) {
             Printer.npcShootedOnShip();
@@ -46,7 +44,7 @@ public class HandleShoot {
             Printer.npcShootedOnWater();
             shoot.boardType = SetBoardTypes.setWaterInsideBoardSpace();
         }
-        GameBoard.printBoard(playerBoard);
+
 
         return playerBoard;
     }
