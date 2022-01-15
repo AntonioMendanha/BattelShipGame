@@ -1,5 +1,7 @@
 package com.services;
 
+import com.controllers.HandleShip;
+import com.controllers.HandleShoot;
 import com.entities.BoardPosition;
 import com.entities.GameStatus;
 import com.entities.Player;

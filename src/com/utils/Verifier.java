@@ -7,7 +7,7 @@ public class Verifier {
         char result = row;
         boolean isValid = false;
         while (!isValid) {
-            if (result == 'a' || result == 'A' || result == 'b' || result == 'B' || result ==  'c' || result == 'C'){
+            if ( result == 'A' || result == 'B' || result == 'C'){
                 isValid = true;
                 return result;
             } else {
@@ -20,7 +20,7 @@ public class Verifier {
         char result = row;
         boolean isValid = false;
         while (!isValid) {
-            if (result == 'a' || result == 'A' || result == 'b' || result == 'B' || result ==  'c' || result == 'C'){
+            if (result == 'A' || result == 'B' || result == 'C'){
                 isValid = true;
                 return result;
             } else {

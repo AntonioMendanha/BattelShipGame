@@ -1,4 +1,4 @@
-package com.services;
+package com.controllers;
 
 import com.entities.BoardPosition;
 import com.entities.Player;
@@ -18,11 +18,11 @@ public class HandleShoot {
         BoardPosition shoot = npcBoard[row][column];
         if (shoot.hasShipInside == true) {
             Printer.shootedOnShip();
-            shoot.boardType = SetBoardTypes.setHittedShipInsideBoardSpace();
+            shoot.boardType = HandleBoardTypes.setHittedShipInsideBoardSpace();
             player.setShipsDestroyed();
         } else {
             Printer.shootedOnWater();
-            shoot.boardType = SetBoardTypes.setWaterInsideBoardSpace();
+            shoot.boardType = HandleBoardTypes.setWaterInsideBoardSpace();
         }
         System.out.println("Campo inimigo atualizado");
 
@@ -38,11 +38,11 @@ public class HandleShoot {
         BoardPosition shoot = playerBoard[row][column];
         if (shoot.hasShipInside == true) {
             Printer.npcShootedOnShip();
-            shoot.boardType = SetBoardTypes.setHittedShipInsideBoardSpace();
+            shoot.boardType = HandleBoardTypes.setHittedShipInsideBoardSpace();
             npc.setShipsDestroyed();
         } else {
             Printer.npcShootedOnWater();
-            shoot.boardType = SetBoardTypes.setWaterInsideBoardSpace();
+            shoot.boardType = HandleBoardTypes.setWaterInsideBoardSpace();
         }
 
 

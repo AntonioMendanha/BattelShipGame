@@ -1,5 +1,6 @@
 package com.services;
 
+import com.controllers.HandleBoardTypes;
 import com.entities.BoardPosition;
 import com.entities.Player;
 import com.utils.Printer;
@@ -36,11 +37,11 @@ public class GameBoard {
             for (int j = 0; j < MAX_COLUMN_ROW ; j++){
                 //formatar cabeçalho das linhas
                 if(i == 0){
-                    gameBoard[i][j].boardType = SetBoardTypes.formatInsideTextBoardSpace(j, ROW_HEADER_TEXT[j]);
+                    gameBoard[i][j].boardType = HandleBoardTypes.formatInsideTextBoardSpace(j, ROW_HEADER_TEXT[j]);
                 } else if (j == 0) {
-                    gameBoard[i][j].boardType = SetBoardTypes.formatInsideTextBoardSpace(i, COL_HEADER_TEXT[i]);
+                    gameBoard[i][j].boardType = HandleBoardTypes.formatInsideTextBoardSpace(i, COL_HEADER_TEXT[i]);
                 } else {
-                    gameBoard[i][j].boardType = SetBoardTypes.setEmptyInsideBoardSpace();
+                    gameBoard[i][j].boardType = HandleBoardTypes.setEmptyInsideBoardSpace();
                 }
             }
         }

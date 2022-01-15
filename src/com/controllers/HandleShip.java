@@ -1,6 +1,7 @@
-package com.services;
+package com.controllers;
 
 import com.entities.BoardPosition;
+import com.services.GameBoard;
 import com.utils.*;
 
 public class HandleShip {
@@ -20,7 +21,7 @@ public class HandleShip {
 
             if (!move.hasShipInside) {
                 move.hasShipInside = true;
-                move.boardType = SetBoardTypes.setShipInsideBoardSpace();
+                move.boardType = HandleBoardTypes.setShipInsideBoardSpace();
                 System.out.println("Navio " + (i + 1) + " pocisionado!");
                 Printer.nextRow();
             }

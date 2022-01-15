@@ -13,7 +13,8 @@ public class Scan {
     public static char shootRowCoordinateScan() {
         Scanner letter = new Scanner(System.in);
         Printer.rowCoordinate();
-        return letter.next().charAt(0);
+        char result = Character.toUpperCase(letter.next().charAt(0));
+        return result;
     }
 
     public static int shootColumnCoordinateScan() {
@@ -25,7 +26,8 @@ public class Scan {
     public static char shipRowCoordinateScan() {
         Scanner letter = new Scanner(System.in);
         Printer.setRowShipCoordinate();
-        return letter.next().charAt(0);
+        char result = Character.toUpperCase(letter.next().charAt(0));
+        return result;
     }
 
     public static int shipColumnCoordinateScan() {

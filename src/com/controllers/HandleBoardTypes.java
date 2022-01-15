@@ -1,8 +1,8 @@
-package com.services;
+package com.controllers;
 
-import com.enums.BoardSpacesEnum;
+import com.enums.BoardTypesEnum;
 
-public class SetBoardTypes {
+public class HandleBoardTypes {
 
     //Formata o texto a ser inserido na célula do campo.
     public static String formatInsideTextBoardSpace(int counter,  String insideText){
@@ -17,15 +17,15 @@ public class SetBoardTypes {
     }
     // Insere o texto do navio na célula
     public static String setEmptyInsideBoardSpace(){
-        return BoardSpacesEnum.EMPTY_CELL.setCellType();
+        return BoardTypesEnum.EMPTY_CELL.setCellType();
     }
     public static String setShipInsideBoardSpace(){
-        return BoardSpacesEnum.HAS_SHIP_INSIDE.setCellType();
+        return BoardTypesEnum.HAS_SHIP_INSIDE.setCellType();
     }
     public static String setWaterInsideBoardSpace(){
-        return BoardSpacesEnum.HITTED_WATER.setCellType();
+        return BoardTypesEnum.HITTED_WATER.setCellType();
     }
     public static String setHittedShipInsideBoardSpace(){
-        return BoardSpacesEnum.HITTED_SHIP.setCellType();
+        return BoardTypesEnum.HITTED_SHIP.setCellType();
     }
 }

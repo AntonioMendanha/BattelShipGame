@@ -1,6 +1,6 @@
 package com.enums;
 
-public enum BoardSpacesEnum {
+public enum BoardTypesEnum {
     EMPTY_CELL("   "),
     HAS_SHIP_INSIDE(" N "),
     HITTED_SHIP(" * "),
@@ -8,7 +8,7 @@ public enum BoardSpacesEnum {
 
     private String type;
 
-    BoardSpacesEnum(String type) {
+    BoardTypesEnum(String type) {
         this.type = type;
     }
 

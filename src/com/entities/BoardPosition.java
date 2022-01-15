@@ -1,6 +1,6 @@
 package com.entities;
 
-import com.enums.BoardSpacesEnum;
+import com.enums.BoardTypesEnum;
 
 /**
  * Classe criada para controlar cada célula do tabuleiro dentro do jogo
@@ -18,11 +18,11 @@ public class BoardPosition {
 
     public static BoardPosition createBoardSpace() {
         BoardPosition boardPosition = new BoardPosition(true,false, " ");
-        boardPosition.boardType = BoardSpacesEnum.EMPTY_CELL.setCellType();
+        boardPosition.boardType = BoardTypesEnum.EMPTY_CELL.setCellType();
         return boardPosition;
     }
 
     public static String setEmptyBoardSpace(BoardPosition boardPosition) {
-        return boardPosition.boardType = BoardSpacesEnum.EMPTY_CELL.setCellType();
+        return boardPosition.boardType = BoardTypesEnum.EMPTY_CELL.setCellType();
     }
 }
