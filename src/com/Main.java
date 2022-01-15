@@ -1,13 +1,8 @@
 package com;
 
 import com.entities.BoardPosition;
-import com.entities.GameStatus;
 import com.entities.Player;
-import com.services.GameBoard;
-import com.services.HandleShip;
-import com.services.HandleShoot;
 import com.services.NewGame;
-import com.utils.Printer;
 
 public class Main {
 

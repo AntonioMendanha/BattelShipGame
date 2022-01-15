@@ -1,8 +1,5 @@
 package com.utils;
 
-import com.entities.BoardPosition;
-import com.enums.BoardSpacesEnum;
-
 public class Verifier {
 
 
